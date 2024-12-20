@@ -29,8 +29,8 @@ project/
 ├── input/              # Folder to store QR code images for decoding
 └── output/             # Folder to store generated QR codes
 Commands to Set Up Project Structure
-mkdir my-python-project
-cd my-python-project
+mkdir project
+cd project
 mkdir input output
 
 2. Write the Python Application
