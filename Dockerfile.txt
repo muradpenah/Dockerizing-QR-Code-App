@@ -1,0 +1,23 @@
+# Use an official Python image
+FROM python:3.9-slim
+
+# Install system dependencies required for QR code generation and decoding
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Create directories for input and output
+RUN mkdir /input /output
+
+# Copy application files to the container
+COPY app.py requirements.txt ./
+
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set the default command to run the application
+CMD ["python", "app.py"]
